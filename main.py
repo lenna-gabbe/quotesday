@@ -21,4 +21,9 @@ def daily_quote():
     return render_template("index.html", quote=quote, date=formatted_date)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    import os
+
+    port = int(os.environ.get("PORT", 10000))  # Render sätter PORT-variabeln automatiskt
+
+    app.run(host="0.0.0.0", port=port)
+
